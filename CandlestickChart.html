@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Arsenal', 10, 9, 0, 1],
+      ['Manchester City', 10, 7, 2, 1],
+      ['Totenham', 11, 7, 2, 2],
+      ['Chelsea', 10, 6, 2, 2],
+      ['Manchester United', 10, 6, 1, 3]
+      // Treat first row as data as well.
+    ], true);
+
+    var options = {backgroundColor:'#00CC66', 'title':'Candle Stick Chart',
+                    titleTextStyle:{
+                        color:'black', fontName: 'Times New Roman', fontSize:42, italic: true
+                    },
+    };
+
+    var chart = new google.visualization.CandlestickChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+    </script>
+  </head>
+  <body>
+    <div id ="chart_div" style="width: 1200px; height: 700px;"></div>
+  </body>
+</html>

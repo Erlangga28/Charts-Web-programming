@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="StyleTable.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name Club');
+        data.addColumn('number', 'Win');
+        data.addColumn('number', 'Draw');
+        data.addColumn('number', 'Lose');
+        data.addColumn('number', 'Point');
+        data.addColumn('boolean', 'Last Match')
+        data.addRows([
+          ['Arsenal', 9, 0, 1,27, true],
+          ['Manchester City',  7, 2, 1, 23, false],
+          ['Totenham', 7, 2, 2, 23, false],
+          ['Chelsea', 6, 2, 2, 20, true],
+          ['Manchester United', 6, 1, 3, 19, true]
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+        table.draw(data, {showRowNumber: true, width: '1200px', height: '550px'});
+      }
+    </script>
+  </head>
+  <body>
+    <div id="table_div"></div>
+  </body>
+</html>
